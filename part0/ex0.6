@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant client
+    participant server
+
+    Note over client, server: client creates a new note and 
+    Note over client, server: the browser now executes callbackfunction to render notes on page and
+    client->>+server: POST https://studies.cs.helsinki.fi/exampleapp/new_notes_spa
+    Note over client, server: the client sends new note in JSON format
+    server-->>-client: 201
+    Note over client, server: server creates note and sends successful notification back
+

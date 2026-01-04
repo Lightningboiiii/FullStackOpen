@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant client
+    participant server
+
+    client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    server-->>-client: HTML document
+    Note over client, server: client fetches HTML code defining content of the page
+    client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    server-->>-client: CSS file
+    Note over client, server: Links in HTML code cause the browser to fetch CSS and
+    client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    server-->>-client: JavaScript file
+    Note over client, server: JS file, client executes Javascript code that fetches JSON data from server
+    client->>+server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    server-->>-client: JSON file
+    Note over client, server: browser now executes callbackfunction to render the notes on page
